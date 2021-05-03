@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { delete_Expense } from "../actions";
 
 function Expense(props) {
   return (
@@ -23,6 +25,13 @@ function Expense(props) {
           <div className="mb-4 mr-auto ml-4 mt-3" key={index}>
             Date :{expense.date}
           </div>
+
+          <button
+            onClick={() => props.dispatch(delete_Expense(expense.id))}
+            className=" bg-red-600 w-1/4 py-2 my-4 ml-auto mr-5 shadow-xl rounded"
+          >
+            DELETE
+          </button>
         </div>
       ))}
     </div>
@@ -33,7 +42,7 @@ const mapStateToProps = (state) => ({
   expenses: state.expenses.data,
   description: state.expenses.description,
   amount: state.expenses.amount,
-  date: state.date,
+  date: state.expenses.date,
 });
 
 export default connect(mapStateToProps)(Expense);

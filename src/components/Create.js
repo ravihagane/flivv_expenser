@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { add_Expense } from "../actions/index";
-import { add_Description } from "../actions/index";
+// import { add_Description } from "../actions/index";
 
 function Create(props) {
   const inputStyle = " border border-opacity-100 border-black mx-4";

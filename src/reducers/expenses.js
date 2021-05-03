@@ -39,19 +39,23 @@ const expenses = (state = initialState, action) => {
           },
         ],
       };
-    case "ADD_DESCRIPTION":
+    // case "ADD_DESCRIPTION":
+    //   return {
+    //     ...state,
+    //     data: [
+    //       ...state.data,
+    //       {
+    //         description: action.description,
+    //         id: action.id,
+    //       },
+    //     ],
+    //   };
+    case "DELETE_EXPENSE":
+      const expenses = state.data.filter((expense) => expense.id !== action.id);
       return {
         ...state,
-        data: [
-          ...state.data,
-          {
-            description: action.description,
-            id: action.id,
-          },
-        ],
+        data: expenses,
       };
-    case "DELETE_EXPENSE":
-      return {};
     default:
       return state;
   }
